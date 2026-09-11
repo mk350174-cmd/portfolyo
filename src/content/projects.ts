@@ -500,6 +500,12 @@ export const PROJECTS: Project[] = [
       "Systems that retrieve and act in one step cannot tell you why they acted. Separating the steps makes provenance a property of the architecture rather than a report generated afterwards.",
     today: [
       {
+        id: "bb-status",
+        tier: "built",
+        text: "The canonical decision on the V6 release is release candidate — external verification outstanding. Every mandatory internal software, security-contract, reproducibility and release-evidence gate passes; the external ones were never run, and the audit says so rather than rounding up.",
+        source: "B_BRANCH_V6_FINAL_AUDIT_20260906.md",
+      },
+      {
         id: "bb-arch",
         tier: "built",
         text: "All thirteen modules exist in the source, each with the same internal shape: phases, orchestration, persistence and types.",
@@ -520,8 +526,8 @@ export const PROJECTS: Project[] = [
       {
         id: "bb-honest",
         tier: "built",
-        text: "The release refuses a blanket production-ready claim. It records that the legacy suite still has ten failing expectations and that several gates remain unverified.",
-        source: "README.md, FINAL_STATUS_AND_RISKS.md",
+        text: "V6 took the legacy suite from ten failing expectations to 696 of 696, and the full Vitest run to 870 of 870 — then still refused to call itself production ready. Its closing line is the reason: structural completeness is not being presented as operational readiness.",
+        source: "B_BRANCH_V6_FINAL_AUDIT_20260906.md",
       },
       {
         id: "bb-manifest",
@@ -543,17 +549,36 @@ export const PROJECTS: Project[] = [
         text: "Governance is a type, not a convention. Evidence carries provenance through the modules rather than being asserted at the end.",
         source: "src/b00/evidence.ts",
       },
+      {
+        id: "bb-hb3",
+        tier: "built",
+        text: "V6 was repair and hardening, not a rewrite. B00–B12 was preserved; eight phases closed in sequence — release identity, lineage and governance, the measurement and retrieval boundaries, then learning, optimisation, compliance and state — each one closed only on its own evidence rather than on the previous phase's.",
+        source: "B_BRANCH_V6_FINAL_AUDIT_20260906.md",
+      },
+      {
+        id: "bb-hb4",
+        tier: "built",
+        text: "The release names the exact V5 archive it was built from, by hash. That claim is checkable, and it checks out: the digest in the V6 manifest matches the V5 archive byte for byte. Provenance the project can demonstrate rather than assert.",
+        source: "B_BRANCH_V6_RELEASE_MANIFEST.json · baseline.sha256",
+      },
     ],
     learned: [
       "The sentence the whole system is organised around is in its README: external data never becomes verified merely because retrieval works.",
-      "Publishing the failing gates alongside the passing ones costs nothing and makes the passing ones mean something.",
+      "Publishing the failing gates alongside the passing ones costs nothing and makes the passing ones mean something. V5 shipped with ten failing legacy expectations printed on its first screen; V6 closed them. Having stated the number while it was bad is what makes 696 of 696 worth reading now.",
       "One external entry point is worth more than a policy document about external entry points.",
     ],
     next: [
       {
         id: "bb-n1",
         tier: "proposed",
-        text: "Close the open gates: the failing legacy expectations, the doctor check, and the authenticated-platform verification.",
+        text: "External verification — a live Agent Reach executable, real provider reachability, and a real-world compliance authority. This is precisely what stands between a release candidate and a production claim, and none of it was available in the audit environment.",
+        source: "B_BRANCH_V6_FINAL_AUDIT_20260906.md",
+      },
+      {
+        id: "bb-n3",
+        tier: "proposed",
+        text: "The deferred half of the loop: applying a change in a real production environment, measuring what happened afterwards, and executing a rollback for real. B10 stops at an external NOT_APPLIED handoff by design, so this is the next boundary rather than a missing feature.",
+        source: "B_BRANCH_V6_FINAL_AUDIT_20260906.md",
       },
       {
         id: "bb-n2",
@@ -562,14 +587,20 @@ export const PROJECTS: Project[] = [
       },
     ],
     limits: [
-      "The full test suite is red. Ten legacy expectations fail, and the release says so on its first screen.",
+      "The internal gates pass; the external ones were never run. Live provider reachability, live retrieval and external content truth are not verified, and real-world legal or platform authority is out of scope entirely.",
+      "Cryptographic actor authentication is out of scope. What is verified is narrower and worth stating exactly: an approval binds to one exact artifact.",
       "Doctor checks, authenticated platforms and external compliance are explicitly not verified.",
       "One real public retrieval succeeded. That is a working integration, not a validated production system.",
     ],
     metrics: [
       { value: "13", label: "modules, B00 to B12", tier: "built", source: "src/" },
       { value: "1", label: "external entry point", tier: "built", source: "src/b08/external/" },
-      { value: "10", label: "failing expectations, published", tier: "built", source: "README.md" },
+      {
+        value: "870/870",
+        label: "tests passing, full Vitest",
+        tier: "built",
+        source: "B_BRANCH_V6_FINAL_AUDIT_20260906.md",
+      },
     ],
     stack: ["TypeScript", "Vitest", "Zod-style contracts", "Node"],
     links: [],

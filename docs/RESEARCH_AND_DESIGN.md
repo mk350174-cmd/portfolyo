@@ -23,9 +23,12 @@ Evidence, from his own repositories, not from the CV:
   "contain unverified/false claims", and carries a section literally titled *"Corrected false
   claims"*. It separates `Kanıtlı` (proven) from `Kanıtlanmamış` (unproven) and records a **failed**
   experiment with the note "read this note before retrying".
-- `B_BRANCH/README.md`: "No blanket production-ready claim… the unchanged legacy suite still has 10
-  failing expectations; full Vitest is therefore red." And the line that best captures him:
+- `B_BRANCH/README.md` (**V5, historical** — superseded by V6, see §19): "No blanket production-ready
+  claim… the unchanged legacy suite still has 10 failing expectations; full Vitest is therefore red."
+  And the line that best captures him:
   **"External data never becomes VERIFIED merely because retrieval works."**
+  The quote is kept because it is the evidence for the *habit*, and the habit is the point: V6 later
+  closed those expectations, and the disclosure is what makes the closure legible.
 
 That is the person. Not "AI enthusiast". Someone who treats *labelling what you actually know* as
 an engineering problem.
@@ -52,7 +55,7 @@ demonstrable*.
 | **Tamerlane Chess AI Engine** | Built, playing | C++20 (`CMAKE_CXX_STANDARD 20`), v0.9.0-cognitive, ~12,275 LOC in `src/`+`include/`, 11 test binaries. 11×10 board + 2 citadels = 112 squares, 13 piece types. Alpha-beta, iterative deepening, LMR, singular extensions, null-move, ProbCut, qsearch, TT. 18 personas with real parameter effects |
 | **Historical Strategy Games Lab** | Prototypes | 14 self-contained HTML files, ~92k lines total, Three.js/WebGL throughout. Hiashatar, Togyzool, Şatra, Satrancı Rumi, Kurt ve Koyun, Buga Shadra, Kalebendi, Bozkır, plus browser Timurlenk v27→v35 |
 | **A-Branch / Video Pipeline** | Built | 3 TypeScript pipelines. P1 research → P2 creative (11 phases, ends FROZEN) → P3 production (10 phases). 66 test files. Remotion + FFmpeg/ffprobe + ElevenLabs/Piper. Governance gates A4–A7 |
-| **B-Branch / Control Plane** | Built, gates open | B00–B12 modules, all present in `src/`. B08 is the only external-retrieval point. Release is explicit that full test suite is red and several gates are NOT VERIFIED |
+| **B-Branch / Control Plane** | Release candidate — external verification outstanding | B00–B12 modules, all present in `src/`. B08 is the only external-retrieval point. **Updated: this row originally read "Built, gates open" on V5 evidence; V6 closed the internal gates. See §19.** |
 | **GemVault Pro** | **Live, public** | Verified live 2026-09-11 |
 
 ## 4. Verified vs future claims — and two corrections
@@ -272,3 +275,54 @@ Remaining risk to manage during build: the evidence discipline must not read as 
 Mitigation — the tone is *precision*, not apology. "Not trained yet" sits beside "26M-parameter
 architecture, training pipeline, quantization and bundling all implemented." Confidence comes from
 specificity.
+
+---
+
+## 19. Correction record — B-Branch V5 → V6 (11 September 2026)
+
+This section is an addition, not a rewrite. The research above is left as it was written so the
+reasoning stays inspectable; this records what later evidence changed and why.
+
+### What the original research used
+
+The supplied portfolio research package contained exactly one B-Branch archive:
+`B_BRANCH_V5_FINAL_WITH_AGENT_REACH_20260906` (`b-branch-strategic-control-plane@5.0.3-agent-reach.20260906`).
+Every B-Branch conclusion in §3, §4 and §7 was drawn from it.
+
+**Those conclusions were accurate for that archive.** I re-verified them against it before correcting
+anything: thirteen modules present, B00 as the governance foundation, B08 as the only module
+containing any outbound code, `RELEASE_STATUS.md` recording "686/696 passed, 10 failed". Nothing in
+the original research was wrong about V5.
+
+### What changed
+
+`B_BRANCH_V6_RELEASE_20260906` (`b-branch-strategic-control-plane@6.0.0.20260906`) was supplied later
+and supersedes V5 for current status. The evidence package contained the release manifest, the final
+audit, and a checksum for the release archive.
+
+Before using it I checked it rather than trusting it:
+
+- **The manifest and the audit agree on every shared value** — release id, package version, scope,
+  Phase 7 input digest, lockfile digest, source-tree hash, three content hashes, the 395 source-file
+  count and the 22 evidence-file count. Eleven cross-checks, no disagreement.
+- **The V6 → V5 lineage is independently verified.** The manifest names its baseline archive by
+  SHA-256. That digest matches the actual bytes of the V5 archive used in the original research, and
+  matches the strategy pack's own independent `SHA256SUMS.txt`. Three-way agreement, so the release
+  I am describing is demonstrably built from the release I audited.
+- **The release archive itself was not supplied**, only its checksum. So the corrections are
+  documentation-supported only; no source-level diff was inferred, and no V6 source behaviour is
+  claimed that the two documents do not state.
+
+### What the corrections were
+
+Six statements presented V5 status as current. All six were corrected, sourced to the V6 audit or
+manifest. Two V5 references were deliberately kept and labelled as history, because a project whose
+argument is evidence transparency should not delete the record of what it published while it was
+failing.
+
+The headline change is narrower than "it passes now": V6 closed the **internal** gates. The public
+status is **release candidate — external verification outstanding**, which is the audit's own
+decision and is not the same as production ready. Live provider reach, external content truth,
+real-world authority and cryptographic actor authentication remain NOT VERIFIED or out of scope;
+production application, post-change measurement and rollback execution remain DEFERRED. Those
+boundaries are preserved on the site and are not tiered as built.
