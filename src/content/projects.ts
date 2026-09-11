@@ -589,8 +589,8 @@ export const PROJECTS: Project[] = [
     limits: [
       "The internal gates pass; the external ones were never run. Live provider reachability, live retrieval and external content truth are not verified, and real-world legal or platform authority is out of scope entirely.",
       "Cryptographic actor authentication is out of scope. What is verified is narrower and worth stating exactly: an approval binds to one exact artifact.",
-      "Doctor checks, authenticated platforms and external compliance are explicitly not verified.",
-      "One real public retrieval succeeded. That is a working integration, not a validated production system.",
+      "The gates that passed are the internal ones: software, security contract, reproducibility and release evidence. External verification remains outstanding, and no amount of internal passing substitutes for it.",
+      "Live Agent Reach and provider retrieval were not verified in the final V6 environment. Fixture retrieval is not presented as live retrieval, and content that arrives is never promoted to verified truth merely because the fetch succeeded.",
     ],
     metrics: [
       { value: "13", label: "modules, B00 to B12", tier: "built", source: "src/" },
