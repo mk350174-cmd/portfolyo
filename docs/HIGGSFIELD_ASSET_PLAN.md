@@ -167,7 +167,15 @@ Both are lazy-loaded below the fold, carry informative alt text, and are caption
   relay resets the browser tunnel to that host). Mehmet should supply a screenshot. A generated
   interface was never an option.
 
-Total spend: four images, well under 10 credits.
+**Measured session total: 32 credits for four generated images** (2 generation calls × 2
+outputs each), from a balance of 1000 → 968.
+
+The 1.25-credit preflight above priced a *different* configuration — `resolution: "1k"`,
+aspect `4:3`, one call. Both production generations ran at `2k` and I did not re-run
+`get_cost` after raising the resolution, so the estimate understated the spend. The
+authoritative per-transaction server ledger was unavailable when this was audited
+(`transactions`, `balance` and `show_generations` all returned errors), so no
+per-generation breakdown is stated here rather than inferring one.
 
 ### Performance
 
@@ -182,3 +190,21 @@ Measured on the same throttled profile (1.6 Mbps / 150 ms) before and after.
 
 No measurable cost: the plates sit below the fold and load on scroll, so they never enter the
 initial payload or compete for LCP. Differences are run-to-run noise.
+
+
+---
+
+## Supersession (12 September 2026)
+
+Both still plates were superseded in the rendered UI by the three supplied Google Flow motion
+studies at launch, per the launch pack's rule against duplicate visual storytelling in the same
+position:
+
+- `/work/tamerlane-chess` — A01 still replaced by `tamerlane-chess-flow.mp4`
+- `/work/historical-games-lab` — A02 still replaced by `historical-games-lab-flow.mp4`
+- `/work/a-branch` — new `a-branch-flow.mp4`, placed *after* the real pipeline diagram
+
+The Flow posters now serve as the still/reduced-motion fallback, so a second static plate in the
+same slot would have said the same thing twice. The A01/A02 WebP files were removed from `public/`
+and remain recoverable from commit `10c1230`; this document is retained as their provenance record.
+The videos are interpretive presentation assets and are captioned as such — they are not evidence.

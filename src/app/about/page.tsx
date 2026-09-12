@@ -84,10 +84,10 @@ export default function AboutPage() {
               <div className="w-[128px] sm:w-[160px] lg:w-[220px]">
                 <div className="overflow-hidden rounded-sm border border-[var(--line)]">
                   <Image
-                    src="/mehmet-koyuncu.jpg"
+                    src="/media/mehmet-koyuncu-portrait.webp"
                     alt="Mehmet Koyuncu"
-                    width={456}
-                    height={640}
+                    width={640}
+                    height={800}
                     priority
                     sizes="(max-width: 640px) 128px, (max-width: 1024px) 160px, 220px"
                     className="h-auto w-full"

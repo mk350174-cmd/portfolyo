@@ -9,7 +9,7 @@ import { PipelineFlow } from "@/components/interactive/PipelineFlow";
 import { ControlPlaneMap } from "@/components/interactive/ControlPlaneMap";
 import { GamesLab } from "@/components/interactive/GamesLab";
 import { GemVaultCard } from "@/components/interactive/GemVaultCard";
-import { PlateFigure } from "@/components/ui/PlateFigure";
+import { MotionPlate } from "@/components/ui/MotionPlate";
 
 export function generateStaticParams() {
   return PROJECTS.map((p) => ({ slug: p.slug }));
@@ -55,10 +55,11 @@ function ProjectInteractive({ slug }: { slug: string }) {
             eyebrow="Learn the board"
             note="Movement rules implemented from TIMURLENK_CHESS_SPEC.md."
           >
-            <PlateFigure
-              src="/media/tamerlane-pieces"
-              alt="Five carved wooden pieces of distinctly different shapes standing in a row on a pale background: a tall tapered piece, a stepped block, one with a long curved neck, a low wide block, and a slender piece with a rounded cap."
-              caption="Tamerlane chess uses thirteen piece types, several with no modern equivalent — a Giraffe, a Camel, a War Machine. This is a generated study of how such a set might read as objects, not a photograph of surviving pieces. The board below carries the actual rules."
+            <MotionPlate
+              src="/media/tamerlane-chess-flow.mp4"
+              poster="/media/tamerlane-chess-flow-poster.webp"
+              alt="Carved wooden chess pieces of several different shapes standing on a teal and cream board, shown in slow close-up."
+              caption="Historically inspired visual language, not a reconstruction. Tamerlane chess has thirteen piece types, several with no modern equivalent; the board below carries the actual rules."
             />
             <div className="mt-6">
               <BoardExplorer />
@@ -69,10 +70,11 @@ function ProjectInteractive({ slug }: { slug: string }) {
     case "historical-games-lab":
       return (
         <Framed eyebrow="What is in the lab" note="Measured from the archive.">
-          <PlateFigure
-            src="/media/steppe-games"
-            alt="Overhead view of two wooden board games on a pale background: a long board with two rows of round pits and a larger store at each end, a small pile of smooth pebbles beside it, and a square gridded board with round wooden counters."
-            caption="The games in this lab are physical objects before they are code — sowing boards counted in stones, gridded boards played with counters. A generated study of the forms involved, not a record of specific historical artefacts."
+          <MotionPlate
+            src="/media/historical-games-lab-flow.mp4"
+            poster="/media/historical-games-lab-flow-poster.webp"
+            alt="Overhead view of traditional board games on a pale surface: a long wooden board with rows of pits holding stones, a gridded board with light and dark counters, and small carved pieces scattered around them."
+            caption="A generated study of game forms, not photographs of surviving artefacts. These games are physical objects before they are code: sowing boards counted in stones, gridded boards played with counters."
           />
           <div className="mt-6">
             <GamesLab />
@@ -86,6 +88,15 @@ function ProjectInteractive({ slug }: { slug: string }) {
           note="Phases as named in the system map."
         >
           <PipelineFlow />
+          <div className="mt-6">
+            <MotionPlate
+              src="/media/a-branch-flow.mp4"
+              poster="/media/a-branch-flow-poster.webp"
+              alt="Abstract editorial motion graphic moving through three stages, from research notes to a creative plan to an assembled production timeline."
+              caption="A visual metaphor for the research → creative → production pipeline. The diagram above is the actual architecture."
+              label="Editorial motion study"
+            />
+          </div>
         </Framed>
       );
     case "b-branch":

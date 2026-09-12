@@ -47,6 +47,24 @@ export const metadata: Metadata = {
     description: SITE.description,
     type: "website",
     locale: "en",
+    url: SITE.url,
+    siteName: SITE.name,
+    // AI-assisted cover derived from Mehmet's real photograph. Social preview
+    // only — it is never used as the portrait or presented as documentary.
+    images: [
+      {
+        url: "/media/mehmet-koyuncu-og.webp",
+        width: 1200,
+        height: 630,
+        alt: `${SITE.name} — AI Systems Builder and History Undergraduate`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE.name} — AI Systems Builder & History Undergraduate`,
+    description: SITE.description,
+    images: ["/media/mehmet-koyuncu-og.webp"],
   },
   robots: { index: true, follow: true },
 };

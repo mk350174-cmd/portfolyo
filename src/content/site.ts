@@ -6,6 +6,29 @@
  * deliberately omitted.
  */
 
+/**
+ * The site's own absolute URL, used for `metadataBase`, the sitemap and the
+ * Open Graph image.
+ *
+ * It has to be absolute — social scrapers will not follow a relative image
+ * path — which makes a hardcoded domain a liability before DNS exists.
+ * `mehmetkoyuncu.dev` does not resolve yet, so this prefers, in order: an
+ * explicit `NEXT_PUBLIC_SITE_URL`, the host the platform reports at build
+ * time, and only then the intended custom domain. The effect is that social
+ * previews work on whatever URL the site is actually served from, and switch
+ * to the custom domain the moment it is pointed at the deployment.
+ */
+function resolveSiteUrl(): string {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (explicit) return explicit.replace(/\/+$/, "");
+
+  const platformHost =
+    process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL;
+  if (platformHost) return `https://${platformHost.replace(/\/+$/, "")}`;
+
+  return "https://mehmetkoyuncu.dev";
+}
+
 export const SITE = {
   name: "Mehmet Koyuncu",
   roles: ["AI Systems Builder", "History Undergraduate"],
@@ -15,7 +38,7 @@ export const SITE = {
   university: "Eskişehir Osmangazi University",
   degree: "B.A. in History",
   graduation: "2030",
-  url: "https://mehmetkoyuncu.dev",
+  url: resolveSiteUrl(),
 
   /** The one sentence the whole site exists to support. */
   thesis:

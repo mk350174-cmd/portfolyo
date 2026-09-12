@@ -128,8 +128,9 @@ export function SiteHeader() {
                 </Link>
               ))}
             </nav>
+            {/* The full-bar variant carries its own "Evidence" label, so the
+                panel does not add a second heading above it. */}
             <div className="mt-5">
-              <p className="t-eyebrow mb-2.5">Evidence filter</p>
               <EvidenceControl />
             </div>
           </div>

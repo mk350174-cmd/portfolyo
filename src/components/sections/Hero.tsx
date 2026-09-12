@@ -74,8 +74,9 @@ export function Hero() {
             </div>
           </div>
 
-          {/* The portrait is the one from the CV, extracted from the document
-              rather than substituted.
+          {/* Mehmet's real photograph, from the supplied launch pack. It is the
+              canonical portrait — the AI-assisted cover derived from it is used
+              for Open Graph only and never appears in the UI.
 
               It deliberately does not come first on small screens: the name
               has to lead, and a portrait above it pushes the headline off the
@@ -85,10 +86,10 @@ export function Hero() {
             <div className="flex items-start gap-5 lg:block lg:w-[210px]">
               <div className="relative w-[108px] shrink-0 overflow-hidden rounded-sm border border-[var(--line)] bg-[var(--surface)] sm:w-[132px] lg:w-full">
                 <Image
-                  src="/mehmet-koyuncu.jpg"
+                  src="/media/mehmet-koyuncu-portrait.webp"
                   alt="Mehmet Koyuncu"
-                  width={456}
-                  height={640}
+                  width={640}
+                  height={800}
                   priority
                   sizes="(max-width: 640px) 108px, (max-width: 1024px) 132px, 210px"
                   className="h-auto w-full"
